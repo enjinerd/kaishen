@@ -1,0 +1,79 @@
+.form_search {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1.2rem;
+  margin: 1.2rem 0;
+}
+
+button,
+input {
+  border: none;
+  background: none;
+}
+
+input {
+  width: 40%;
+  padding: 0.5rem;
+  border: 5px solid #000;
+  box-shadow: 1px 1px 0, 2px 2px 0, 3px 3px 0, 4px 4px 0, 5px 5px 0;
+  position: relative;
+}
+
+button {
+  width: 105px;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  background: #f2f2f2;
+  color: black;
+  cursor: pointer;
+  border: 5px solid #000;
+  box-shadow: 1px 1px 0, 2px 2px 0, 3px 3px 0, 4px 4px 0, 5px 5px 0;
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 0.1rem;
+}
+
+button:hover {
+  background: #ccc;
+}
+
+img {
+  transition: transform 0.2s;
+  height: 300px;
+  width: auto;
+  border: 5px solid #000;
+  box-shadow: 1px 1px 0, 2px 2px 0, 3px 3px 0, 4px 4px 0, 5px 5px 0;
+  position: relative;
+}
+
+img:hover {
+  transform: scale(1.1);
+}
+
+.img_container {
+  margin-top: 1.85rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.71rem;
+}
+
+.img_container a {
+  text-decoration: none;
+  color: #121212;
+  padding: 0.5rem 1rem;
+  background: white;
+  border: 5px solid #000;
+  box-shadow: 1px 1px 0, 2px 2px 0, 3px 3px 0, 4px 4px 0, 5px 5px 0;
+  position: relative;
+  transition: transform 0.2s;
+}
+
+.img_container a:hover {
+  transform: scale(1.1);
+}
