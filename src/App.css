@@ -6,12 +6,12 @@
 body {
   background: radial-gradient(at right top, rgb(185, 28, 28), rgb(126, 34, 206), rgb(14, 116, 144));
   background-position: center;
-  overflow: hidden;
 }
 
-main {
+.song_list {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   align-content: center;
   justify-content: space-evenly;

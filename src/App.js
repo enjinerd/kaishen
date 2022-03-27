@@ -7,8 +7,10 @@ function App() {
   return (
     <div>
       <Header />
-      <main>
-        <SongDetails data={data} />
+      <main className="song_list">
+        {data.map((data) => (
+          <SongDetails data={data} key={data.id} />
+        ))}
       </main>
       <Footer />
     </div>
