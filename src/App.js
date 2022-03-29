@@ -1,6 +1,6 @@
 import './App.css';
 import data from './data';
-import { SongDetails } from './components';
+import { SongDetails, SearchBar } from './components';
 import { Header, Footer } from './components/ui';
 
 function App() {
@@ -8,9 +8,10 @@ function App() {
     <div>
       <Header />
       <main className="song_list">
-        {data.map((data) => (
+        {/* {data.map((data) => (
           <SongDetails data={data} key={data.id} />
-        ))}
+        ))} */}
+        <SearchBar />
       </main>
       <Footer />
     </div>
