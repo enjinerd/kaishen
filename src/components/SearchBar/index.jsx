@@ -13,7 +13,21 @@ export class SearchBar extends Component {
     isError: false,
   };
 
-  handleSearch = (e) => {};
+  handleSearch = (e) => {
+    e.preventDefault();
+    axios
+      .get(`https://api.spotify.com/v1/search?type=track&q=${this.state.query}`, {
+        headers: {
+          Authorization: `Bearer ${this.state.acces_token}`,
+        },
+      })
+      .then((res) => {
+        this.setState({
+          data: res.data.tracks.items,
+        });
+        console.log(res.data);
+      });
+  };
   handleQuery = (e) => {
     this.setState((prevState) => ({ ...prevState, query: e.target.value }));
   };
