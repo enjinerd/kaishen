@@ -1,7 +1,9 @@
 import { Component, Fragment } from 'react';
 import axios from 'axios';
+import { SongDetails } from '../../components';
+import styles from './Home.module.css';
 
-export class SearchBar extends Component {
+export default class Home extends Component {
   SPOTIFY_API_KEY = process.env.REACT_APP_SPOTIFY_KEY;
   redirect_uri = 'http://localhost:3000/';
   scopes = 'playlist-modify-private';
@@ -26,17 +28,14 @@ export class SearchBar extends Component {
           data: res.data.tracks.items,
         });
         console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+        this.state.isError = true;
       });
   };
   handleQuery = (e) => {
     this.setState((prevState) => ({ ...prevState, query: e.target.value }));
-  };
-  handleAuth = () => {
-    window.open(
-      `https://accounts.spotify.com/authorize?client_id=${this.SPOTIFY_API_KEY}&response_type=token&redirect_uri=${this.redirect_uri}&scope=${this.scopes}&show_dialog=true`,
-      'Login with Spotify',
-      'width=800,height=600'
-    );
   };
 
   render() {
@@ -48,16 +47,26 @@ export class SearchBar extends Component {
     return (
       <Fragment>
         {this.state.isLogin ? (
-          <form>
-            <input type="text" placeholder="Search" onChange={this.handleQuery} />
-            <button type="submit" onClick={this.handleSearch}>
-              Search
-            </button>
-          </form>
+          <div className={styles.container}>
+            <form>
+              <input type="text" placeholder="Search" onChange={this.handleQuery} />
+              <button type="submit" onClick={this.handleSearch}>
+                Search
+              </button>
+            </form>
+            <section className={styles.song_list}>
+              {this.state.data?.map((data) => (
+                <SongDetails data={data} key={data.id} />
+              ))}
+              {this.state.isError && <p>Something went wrong</p>}
+            </section>
+          </div>
         ) : (
           <form>
-            <button type="submit" onClick={this.handleAuth}>
-              Login with Spotify
+            <button>
+              <a className="btn_href" href={`https://accounts.spotify.com/authorize?client_id=${this.SPOTIFY_API_KEY}&response_type=token&redirect_uri=${this.redirect_uri}&scope=${this.scopes}`}>
+                Login With Spotify
+              </a>
             </button>
           </form>
         )}

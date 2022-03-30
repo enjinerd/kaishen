@@ -13,40 +13,51 @@ input {
   background: none;
 }
 
-input {
-  width: 40%;
-  padding: 0.5rem;
-  border: 5px solid #000;
-  box-shadow: 1px 1px 0, 2px 2px 0, 3px 3px 0, 4px 4px 0, 5px 5px 0;
-  position: relative;
-}
-
 button {
-  width: 105px;
   padding: 0.5rem;
-  border: 1px solid #ccc;
-  background: #f2f2f2;
-  color: black;
-  cursor: pointer;
-  border: 5px solid #000;
-  box-shadow: 1px 1px 0, 2px 2px 0, 3px 3px 0, 4px 4px 0, 5px 5px 0;
-  position: relative;
-  text-decoration: none;
-  text-transform: uppercase;
-  font-weight: 900;
-  letter-spacing: 0.1rem;
+  width: 8rem;
+  border-radius: 0.5rem;
+  border: none;
+  background: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  box-shadow: 0 7px 20px 5px #e60073;
+  transition: transform 0.3s;
 }
 
 button:hover {
-  background: #ccc;
+  background: #e60073;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 7px 20px 5px rgb(14, 116, 144);
+  transform: scale(1.1);
 }
+
+button:focus {
+  outline: none;
+}
+
+input {
+  border-radius: 0.5rem;
+  border: none;
+  background: linear-gradient(0deg, rgb(180, 177, 177) 0%, rgba(217, 213, 221, 0.5) 100%);
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #000;
+  text-align: center;
+  box-shadow: 0 7px 20px 5px #00000088;
+}
+
 
 img {
   transition: transform 0.2s;
   height: 300px;
   width: auto;
-  border: 5px solid #000;
-  box-shadow: 1px 1px 0, 2px 2px 0, 3px 3px 0, 4px 4px 0, 5px 5px 0;
   position: relative;
 }
 
@@ -76,4 +87,23 @@ img:hover {
 
 .img_container a:hover {
   transform: scale(1.1);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1.71rem;
+}
+
+/*
+  Grid with 5 items each row
+*/
+
+.song_list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.71rem;
+  margin-top: 1.71rem;
 }
