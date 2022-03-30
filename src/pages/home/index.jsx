@@ -38,12 +38,15 @@ export default class Home extends Component {
     this.setState((prevState) => ({ ...prevState, query: e.target.value }));
   };
 
+  token_param = window.location.hash.substr(1).split('&')[0].split('=')[1];
+
   render() {
-    if (window.location.hash.substr(1).split('&')[0].split('=')[1]?.length > 0) {
+    if (this.token_param?.length > 0) {
       this.state.acces_token = window.location.hash.substr(1).split('&')[0].split('=')[1];
       this.state.isLogin = true;
       this.state.isError = false;
     }
+
     return (
       <Fragment>
         {this.state.isLogin ? (
