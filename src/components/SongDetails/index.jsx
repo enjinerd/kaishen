@@ -1,7 +1,7 @@
 import styles from './styles.module.css';
 import { Button } from '../ui';
 
-export function SongDetails({ data }) {
+export function SongDetails({ data, dataId, handleSelected }) {
   const {
     name: songName,
     external_urls: { spotify: songUrl },
@@ -33,7 +33,9 @@ export function SongDetails({ data }) {
         </div>
       </div>
       <div id="action_btn">
-        <Button>Select</Button>
+        <Button onClick={handleSelected} dataId={dataId}>
+          Select
+        </Button>
       </div>
     </div>
   );
