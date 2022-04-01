@@ -1,27 +1,24 @@
-import { Component, Fragment, useState, useEffect } from "react";
+import { Fragment, useState, useEffect } from "react";
 import axios from "axios";
 import { SongDetails } from "../../components";
 import styles from "./Home.module.css";
 
 export default function Home() {
-  /* Setting up the Spotify API key, redirect uri, and scopes. */
+  /* ENV and API */
   const SPOTIFY_API_KEY = process.env.REACT_APP_SPOTIFY_KEY;
   const redirect_uri = "http://localhost:3000/";
   const scopes = "playlist-modify-private";
+
+  /* STATE */
   const [token, setToken] = useState("");
   const [query, setQuery] = useState("");
   const [songData, setSongData] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
   const [isError, setIsError] = useState(false);
   const [selectedData, setSelected] = useState([]);
   const [requestCount, setRequestCount] = useState(0);
 
-  /**
-   * It takes in an event, and then uses the event to get the value of the input field, and then uses
-   * that value to make a request to the Spotify API
-   */
-
+  /* METHODS */
   const handleSearch = (e) => {
     e.preventDefault();
     axios
@@ -37,11 +34,9 @@ export default function Home() {
         }));
 
         setSongData(songList);
-        console.log(songList);
         setRequestCount(requestCount + 1);
       })
       .catch((err) => {
-        console.log(err);
         setIsError(true);
       });
   };
@@ -50,10 +45,15 @@ export default function Home() {
     setQuery(e.target.value);
   };
 
+  /**
+   * It takes in an event and a song data array. It then loops through the song data array and checks if
+   * the song data's uri matches the uri of the song data that was clicked. If it does, it sets the song
+   * data's isSelected property to the opposite of what it currently is
+   */
   const handleSelected = (e) => {
-    const dataId = e.target.getAttribute("dataId");
+    const data_id = e.target.getAttribute("data_id");
     const newData = songData.map((data) => {
-      if (data.uri === dataId) {
+      if (data.uri === data_id) {
         return {
           ...data,
           isSelected: !data.isSelected,
@@ -65,6 +65,7 @@ export default function Home() {
     setSelected(newData);
   };
 
+  /* EFFECTS */
   useEffect(() => {
     /* This is getting the token from the url. */
     const token_param = window.location.hash
@@ -78,11 +79,10 @@ export default function Home() {
     }
   }, []);
 
-  // useEffect merge selectedData to songData when user request new search
+  /* It's merging the selectedData to songData when user request new search. */
   useEffect(() => {
     if (requestCount > 1) {
       let newData = [...songData, ...selectedData];
-      // sort new data by is selected
       newData = newData.sort((a, b) => {
         if (a.isSelected && !b.isSelected) {
           return -1;
@@ -112,7 +112,7 @@ export default function Home() {
               <SongDetails
                 data={data}
                 key={data.id}
-                dataId={data.uri}
+                data_id={data.uri}
                 handleSelected={handleSelected}
               />
             ))}

@@ -1,7 +1,7 @@
 import styles from './styles.module.css';
 import { Button } from '../ui';
 
-export function SongDetails({ data, dataId, handleSelected }) {
+export function SongDetails({ data, data_id, handleSelected }) {
   const {
     name: songName,
     external_urls: { spotify: songUrl },
@@ -34,7 +34,7 @@ export function SongDetails({ data, dataId, handleSelected }) {
         </div>
       </div>
       <div id="action_btn">
-        <Button className={isSelected && styles.btn_selected} onClick={handleSelected} dataId={dataId}>
+        <Button className={isSelected && styles.btn_selected} onClick={handleSelected} data_id={data_id}>
           {isSelected ? 'Deselect' : 'Select'}
         </Button>
       </div>
