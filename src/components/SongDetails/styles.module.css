@@ -32,6 +32,14 @@ button:focus {
   outline: none;
 }
 
+.btn_selected {
+  background: #e60073;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 7px 20px 5px rgb(14, 116, 144);
+  transform: scale(1.1);
+}
+
 .song_details {
   padding: 0.58rem;
   max-width: 300px;
@@ -56,6 +64,10 @@ button:focus {
 .song_image:hover {
   transform: scale(1.1);
   cursor: pointer;
+}
+
+.selected_song {
+  box-shadow: 0 7px 20px 5px #42b0f5;
 }
 
 .metadata {
