@@ -15,11 +15,13 @@ export default function Home() {
   const [isLogin, setIsLogin] = useState(false);
   const [isError, setIsError] = useState(false);
   const [selectedData, setSelected] = useState([]);
+  const [requestCount, setRequestCount] = useState(0);
 
   /**
    * It takes in an event, and then uses the event to get the value of the input field, and then uses
    * that value to make a request to the Spotify API
    */
+
   const handleSearch = (e) => {
     e.preventDefault();
     axios
@@ -36,6 +38,7 @@ export default function Home() {
 
         setSongData(songList);
         console.log(songList);
+        setRequestCount(requestCount + 1);
       })
       .catch((err) => {
         console.log(err);
@@ -59,9 +62,6 @@ export default function Home() {
       return data;
     });
     setSongData(newData);
-    const selectedData = [
-      ...new Set(newData.filter((data) => data.isSelected)),
-    ];
     setSelected(newData);
   };
 
@@ -77,6 +77,24 @@ export default function Home() {
       setIsLogin(true);
     }
   }, []);
+
+  // useEffect merge selectedData to songData when user request new search
+  useEffect(() => {
+    if (requestCount > 1) {
+      let newData = [...songData, ...selectedData];
+      // sort new data by is selected
+      newData = newData.sort((a, b) => {
+        if (a.isSelected && !b.isSelected) {
+          return -1;
+        }
+        if (!a.isSelected && b.isSelected) {
+          return 1;
+        }
+        return 0;
+      });
+      setSongData(newData);
+    }
+  }, [requestCount]);
 
   return (
     <Fragment>

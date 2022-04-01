@@ -18,7 +18,7 @@ export function SongDetails({ data, dataId, handleSelected }) {
   } = data?.artists[0];
 
   return (
-    <div className={styles.song_details}>
+    <div className={`${styles.song_details} ${isSelected && styles.selected_song}`}>
       <div className={styles.description}>
         <img className={styles.song_image} src={albumImage} alt="song_details" />
         <div className={styles.metadata}>
@@ -34,8 +34,8 @@ export function SongDetails({ data, dataId, handleSelected }) {
         </div>
       </div>
       <div id="action_btn">
-        <Button onClick={handleSelected} dataId={dataId}>
-          {isSelected ? 'Remove' : 'Select'}
+        <Button className={isSelected && styles.btn_selected} onClick={handleSelected} dataId={dataId}>
+          {isSelected ? 'Deselect' : 'Select'}
         </Button>
       </div>
     </div>
