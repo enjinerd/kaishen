@@ -1,10 +1,11 @@
 import styles from './styles.module.css';
 import { Button } from '../ui';
 
-export function SongDetails({ data }) {
+export function SongDetails({ data, data_id, handleSelected }) {
   const {
     name: songName,
     external_urls: { spotify: songUrl },
+    isSelected,
   } = data;
   const {
     name: albumName,
@@ -17,7 +18,7 @@ export function SongDetails({ data }) {
   } = data?.artists[0];
 
   return (
-    <div className={styles.song_details}>
+    <div className={`${styles.song_details} ${isSelected && styles.selected_song}`}>
       <div className={styles.description}>
         <img className={styles.song_image} src={albumImage} alt="song_details" />
         <div className={styles.metadata}>
@@ -33,7 +34,9 @@ export function SongDetails({ data }) {
         </div>
       </div>
       <div id="action_btn">
-        <Button>Select</Button>
+        <Button className={isSelected && styles.btn_selected} onClick={handleSelected} data_id={data_id}>
+          {isSelected ? 'Deselect' : 'Select'}
+        </Button>
       </div>
     </div>
   );
