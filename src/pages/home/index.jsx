@@ -29,8 +29,13 @@ export default function Home() {
         },
       })
       .then((res) => {
-        setSongData(res.data.tracks.items);
-        console.log(res.data.tracks.items[0]);
+        const songList = res.data.tracks.items.map((data) => ({
+          ...data,
+          isSelected: false,
+        }));
+
+        setSongData(songList);
+        console.log(songList);
       })
       .catch((err) => {
         console.log(err);
@@ -44,9 +49,20 @@ export default function Home() {
 
   const handleSelected = (e) => {
     const dataId = e.target.getAttribute("dataId");
-    const data = songData.find((song) => song.id === dataId);
-    setSelected([...selectedData, data]);
-    console.log(dataId);
+    const newData = songData.map((data) => {
+      if (data.uri === dataId) {
+        return {
+          ...data,
+          isSelected: !data.isSelected,
+        };
+      }
+      return data;
+    });
+    setSongData(newData);
+    const selectedData = [
+      ...new Set(newData.filter((data) => data.isSelected)),
+    ];
+    setSelected(newData);
   };
 
   useEffect(() => {

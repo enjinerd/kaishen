@@ -5,6 +5,7 @@ export function SongDetails({ data, dataId, handleSelected }) {
   const {
     name: songName,
     external_urls: { spotify: songUrl },
+    isSelected,
   } = data;
   const {
     name: albumName,
@@ -34,7 +35,7 @@ export function SongDetails({ data, dataId, handleSelected }) {
       </div>
       <div id="action_btn">
         <Button onClick={handleSelected} dataId={dataId}>
-          Select
+          {isSelected ? 'Remove' : 'Select'}
         </Button>
       </div>
     </div>
