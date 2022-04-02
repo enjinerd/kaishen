@@ -1,6 +1,7 @@
 import { Fragment, useState, useEffect } from "react";
 import axios from "axios";
-import { SongDetails } from "../../components";
+import { SongList } from "../../components";
+import { usePagination } from "../../hooks";
 import styles from "./Home.module.css";
 
 export default function Home() {
@@ -17,6 +18,10 @@ export default function Home() {
   const [isError, setIsError] = useState(false);
   const [selectedData, setSelected] = useState([]);
   const [requestCount, setRequestCount] = useState(0);
+  let { next, prev, jump, currentData, currentPage, maxPage } = usePagination(
+    songData,
+    9
+  );
 
   /* METHODS */
   const handleSearch = (e) => {
@@ -106,18 +111,9 @@ export default function Home() {
               Search
             </button>
           </form>
-          <section className="selected_songs"></section>
-          <section className={styles.song_list}>
-            {songData?.map((data) => (
-              <SongDetails
-                data={data}
-                key={data.id}
-                data_id={data.uri}
-                handleSelected={handleSelected}
-              />
-            ))}
-            {isError && <p>Something went wrong</p>}
-          </section>
+          {songData.length > 0 && (
+            <SongList data={songData} handleSelected={handleSelected} />
+          )}
         </div>
       ) : (
         <form>

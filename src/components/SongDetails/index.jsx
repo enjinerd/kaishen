@@ -32,11 +32,9 @@ export function SongDetails({ data, data_id, handleSelected }) {
             {albumName}
           </a>
         </div>
-      </div>
-      <div id="action_btn">
-        <Button className={isSelected && styles.btn_selected} onClick={handleSelected} data_id={data_id}>
+        {/* <Button className={isSelected && styles.btn_selected} onClick={handleSelected} data_id={data_id}>
           {isSelected ? 'Deselect' : 'Select'}
-        </Button>
+        </Button> */}
       </div>
     </div>
   );

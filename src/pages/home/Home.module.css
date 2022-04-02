@@ -97,13 +97,3 @@ img:hover {
   gap: 1.71rem;
 }
 
-/*
-  Grid with 5 items each row
-*/
-
-.song_list {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1.71rem;
-  margin-top: 1.71rem;
-}
