@@ -7,13 +7,46 @@
   margin: 1.2rem 0;
 }
 
+.selected_info {
+  font-weight: 600;
+  font-size: 1.25rem;
+  background: linear-gradient(0deg, rgb(253, 253, 253) 0%, rgba(212, 209, 214, 0.5) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  margin-bottom: 1rem;
+  text-shadow: 0 7px 20px 5px #00000088;
+}
+
+.vertical_divider {
+  width: 0.2rem;
+  height: 1.5rem;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.5) 0%,
+    rgba(255, 255, 255, 0.5) 100%
+  );
+  box-shadow: 0 7px 20px 5px #00000088;
+  margin: 0.2rem;
+}
+
+.form_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+
 button,
-input {
+input,
+a {
   border: none;
   background: none;
 }
 
-button {
+.btn_href {
   padding: 0.5rem;
   width: 8rem;
   border-radius: 0.5rem;
@@ -29,7 +62,7 @@ button {
   transition: transform 0.3s;
 }
 
-button:hover {
+.btn_href:hover {
   background: #e60073;
   color: #fff;
   cursor: pointer;
@@ -37,7 +70,7 @@ button:hover {
   transform: scale(1.1);
 }
 
-button:focus {
+.btn_href:focus {
   outline: none;
 }
 
