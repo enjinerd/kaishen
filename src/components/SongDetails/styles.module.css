@@ -5,7 +5,7 @@
 
 .song_details {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   padding: 0.58rem;
   justify-content: space-between;
 
@@ -97,13 +97,6 @@ a {
   width: 180px;
   text-decoration: none;
   text-align: center;
-}
-
-a:hover {
-  background: linear-gradient(to left bottom, rgb(202, 138, 4), rgb(220, 38, 38));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 

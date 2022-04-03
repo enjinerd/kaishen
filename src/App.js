@@ -5,10 +5,7 @@ import Home from './pages/home';
 function App() {
   return (
     <div>
-      <Header />
-      <main className="song_list">
-        <Home />
-      </main>
+      <Home />
       <Footer />
     </div>
   );
