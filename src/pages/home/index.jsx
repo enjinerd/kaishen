@@ -9,6 +9,8 @@ import {
 } from "../../utils/spotifyHandler";
 import { Header } from "../../components/ui";
 import { Button } from "../../components/ui";
+import { useSelector, useDispatch } from "react-redux";
+import { setAccessToken } from "../../redux/spotifySlice";
 
 export default function Home() {
   /* ENV and API */
@@ -17,7 +19,6 @@ export default function Home() {
   const scopes = "playlist-modify-private";
 
   /* STATE */
-  const [token, setToken] = useState("");
   const [query, setQuery] = useState("");
   const [songData, setSongData] = useState([]);
   const [isLogin, setIsLogin] = useState(false);
@@ -34,13 +35,20 @@ export default function Home() {
     user_id: "",
     profile_img: "",
   });
+
+  /* REDUX */
+  const spotify = useSelector((state) => state.spotify);
+  const dispatch = useDispatch();
+  const access_token = spotify?.access_token;
+
   /* METHODS */
   const handleSearch = (e) => {
     e.preventDefault();
+    console.log(spotify);
     axios
       .get(`https://api.spotify.com/v1/search?type=track&q=${query}`, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${access_token}`,
         },
       })
       .then((res) => {
@@ -63,11 +71,11 @@ export default function Home() {
       alert("Playlist name must be at least 10 characters");
       return;
     } else {
-      await createPlaylist(token, userProfile.user_id, playlistData)
+      await createPlaylist(access_token, userProfile.user_id, playlistData)
         .then(async (res) => {
           const playlistId = res.data.id;
           const tracks = selectedData.map((data) => data.uri);
-          await addTracksToPlaylist(token, playlistId, tracks);
+          await addTracksToPlaylist(access_token, playlistId, tracks);
           alert("Playlist Created, check your spotify account");
         })
         .catch((err) => {
@@ -118,13 +126,13 @@ export default function Home() {
   /* EFFECTS */
   useEffect(() => {
     /* This is getting the token from the url. */
-    const token_param = window.location.hash
+    const access_token = window.location.hash
       .substr(1)
       .split("&")[0]
       .split("=")[1];
 
-    if (token_param) {
-      fetchUserProfile(token_param).then((res) => {
+    if (access_token) {
+      fetchUserProfile(access_token).then((res) => {
         const user = {
           name: res.data.display_name,
           profile_img: res.data.images[0].url,
@@ -133,7 +141,7 @@ export default function Home() {
         console.log(res.data.id);
         setUserProfile(user);
       });
-      setToken(token_param);
+      dispatch(setAccessToken({ access_token }));
       setIsLogin(true);
     }
   }, []);
