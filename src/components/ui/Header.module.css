@@ -1,5 +1,12 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0rem 3rem;
+}
 .header h1 {
-  font-size: 3rem;
+  font-size: 2.1rem;
   background: radial-gradient(at center bottom, rgb(194, 65, 12), rgb(255, 255, 255), rgb(71, 85, 105));
   background-clip: text;
   -webkit-background-clip: text;
@@ -9,6 +16,34 @@
   -moz-animation: glow 1s ease-in-out infinite alternate;
   animation: glow 1s ease-in-out infinite alternate;
 }
+
+.user_profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1.34rem;
+  padding: 0.53rem 1.98rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(0deg, rgb(9, 9, 9) 0%, rgba(212, 209, 214, 0.5) 100%);
+}
+
+.profile_img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.profile_name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  background: linear-gradient(0deg, rgb(213, 193, 214) 0%, rgba(212, 209, 214, 0.5) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  text-align: center;
+}
+
 @keyframes glow {
   from {
     text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;

@@ -77,33 +77,6 @@ input {
   box-shadow: 0 7px 20px 5px #00000088;
 }
 
-button {
-  padding: 0.5rem;
-  width: 8rem;
-  border-radius: 0.5rem;
-  border: none;
-  background: #fff;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #000;
-  text-align: center;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-  box-shadow: 0 7px 20px 5px #e60073;
-  transition: transform 0.3s;
-}
-
-button:hover {
-  background: #e60073;
-  color: #fff;
-  cursor: pointer;
-  box-shadow: 0 7px 20px 5px rgb(14, 116, 144);
-  transform: scale(1.1);
-}
-
-button:focus {
-  outline: none;
-}
 
 .song_details {
   padding: 0.58rem;
@@ -126,7 +99,7 @@ button:focus {
   transition: transform 0.3s;
 }
 
-img:hover {
+.song_details img:hover {
   transform: scale(1.1);
   cursor: pointer;
 }
@@ -182,50 +155,6 @@ img:hover {
   font-size: 0.77rem;
   font-weight: 500;
 }
-
-a {
-  color: inherit;
-  width: 180px;
-  text-decoration: none;
-  text-align: center;
-}
-
-a:hover {
-  background: linear-gradient(to left bottom, rgb(202, 138, 4), rgb(220, 38, 38));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* footer {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 0.7rem;
-  margin-top: 1rem;
-}
-
-footer p {
-  background-color: #282c34;
-  background: linear-gradient(0deg, rgba(40, 44, 52, 1) 0%, rgba(17, 0, 32, 0.5) 100%);
-  box-shadow: 0 7px 20px 5px #00000088;
-  border-radius: 0.7rem;
-  backdrop-filter: blur(7px);
-  -webkit-backdrop-filter: blur(7px);
-  padding: 0.5rem 7rem;
-  font-weight: 700;
-  text-align: center;
-} */
-
-/* footer p span {
-  background: linear-gradient(0deg, rgb(253, 253, 253) 0%, rgba(212, 209, 214, 0.5) 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-align: center;
-  text-shadow: 0 7px 20px 5px #00000088;
-} */
 
 /* Mobile responsive */
 @media only screen and (max-width: 600px) {

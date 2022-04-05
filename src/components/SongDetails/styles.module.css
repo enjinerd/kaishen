@@ -3,46 +3,12 @@
   font-family: 'Inter';
 }
 
-
-button {
-  padding: 0.5rem;
-  width: 8rem;
-  border-radius: 0.5rem;
-  border: none;
-  background: #fff;
-  font-size: 1rem;
-  font-weight: bold;
-  color: #000;
-  text-align: center;
-  margin-bottom: 1rem;
-  margin-top: 1rem;
-  box-shadow: 0 7px 20px 5px #e60073;
-  transition: transform 0.3s;
-}
-
-button:hover {
-  background: #e60073;
-  color: #fff;
-  cursor: pointer;
-  box-shadow: 0 7px 20px 5px rgb(14, 116, 144);
-  transform: scale(1.1);
-}
-
-button:focus {
-  outline: none;
-}
-
-.btn_selected {
-  background: #e60073;
-  color: #fff;
-  cursor: pointer;
-  box-shadow: 0 7px 20px 5px rgb(14, 116, 144);
-  transform: scale(1.1);
-}
-
 .song_details {
+  display: flex;
+  flex-direction: column;
   padding: 0.58rem;
-  max-width: 300px;
+  justify-content: space-between;
+
   border: 1px solid #ffffff22;
   background-color: #282c34;
   background: linear-gradient(0deg, rgba(40, 44, 52, 1) 0%, rgba(17, 0, 32, 0.5) 100%);
@@ -55,8 +21,8 @@ button:focus {
 
 .song_image {
   border-radius: 0.5rem;
-  max-width: 225px;
-  height: 225px;
+  max-width: 65px;
+  height: 65px;
   object-fit: cover;
   transition: transform 0.3s;
 }
@@ -75,13 +41,18 @@ button:focus {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.5rem;
-  margin-top: 1.2rem;
+}
+
+.description {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .song_details,
 .description {
-  margin: 0.2rem 0;
+  margin: 0.1rem 0;
   color: #a89ec9;
 }
 
@@ -91,7 +62,6 @@ button:focus {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
-  margin-bottom: 1rem;
   text-shadow: 0 7px 20px 5px #00000088;
   font-weight: 800;
 }
@@ -106,19 +76,19 @@ button:focus {
 }
 
 .artist_name {
-  font-size: 0.87rem;
+  font-size: 0.67rem;
   font-weight: 600;
   text-shadow: 0 7px 20px 5px #00000088;
 }
 
 .artist_album {
-  font-size: 0.87rem;
+  font-size: 0.67rem;
   font-weight: 600;
   text-shadow: 0 7px 20px 5px #00000088;
 }
 
 .album_name {
-  font-size: 0.77rem;
+  font-size: 0.67rem;
   font-weight: 500;
 }
 
@@ -127,13 +97,6 @@ a {
   width: 180px;
   text-decoration: none;
   text-align: center;
-}
-
-a:hover {
-  background: linear-gradient(to left bottom, rgb(202, 138, 4), rgb(220, 38, 38));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 
@@ -160,7 +123,7 @@ a:hover {
   }
 
   .title {
-    font-size: 0.86rem;
+    font-size: 0.6rem;
   }
 
   .song_details {
@@ -298,33 +261,3 @@ a:hover {
   transition: transform 0.3s;
 }
 
-.gg-play-track-prev-o::after,
-.gg-play-track-prev-o::before {
-  content: '';
-  display: block;
-  box-sizing: border-box;
-  position: absolute;
-  height: 11px;
-  top: 5px;
-}
-
-.gg-play-track-prev-o::before {
-  width: 2px;
-  border-radius: 2px;
-  right: 13px;
-  background: currentColor;
-}
-
-.gg-play-track-prev-o::after {
-  width: 0;
-  border-top: 4px solid transparent;
-  border-bottom: 4px solid transparent;
-  border-right: 5px solid;
-  right: 5px;
-}
-
-.gg-play-track-prev-o:hover {
-  cursor: pointer;
-  box-shadow: 0 7px 20px 5px rgb(14, 116, 144);
-  transform: scale(1.1);
-}

@@ -1,7 +1,16 @@
 import { Fragment, useState, useEffect } from "react";
 import axios from "axios";
-import { SongDetails } from "../../components";
+import { SongList, PlaylistForm } from "../../components";
 import styles from "./Home.module.css";
+import {
+  fetchUserProfile,
+  createPlaylist,
+  addTracksToPlaylist,
+} from "../../utils/spotifyHandler";
+import { Header } from "../../components/ui";
+import { Button } from "../../components/ui";
+import { useSelector, useDispatch } from "react-redux";
+import { setAccessToken } from "../../redux/spotifySlice";
 
 export default function Home() {
   /* ENV and API */
@@ -10,21 +19,36 @@ export default function Home() {
   const scopes = "playlist-modify-private";
 
   /* STATE */
-  const [token, setToken] = useState("");
   const [query, setQuery] = useState("");
   const [songData, setSongData] = useState([]);
   const [isLogin, setIsLogin] = useState(false);
   const [isError, setIsError] = useState(false);
   const [selectedData, setSelected] = useState([]);
   const [requestCount, setRequestCount] = useState(0);
+  const [playlistData, setPlaylistData] = useState({
+    name: "",
+    description: "",
+    public: false,
+  });
+  const [userProfile, setUserProfile] = useState({
+    display_name: "",
+    user_id: "",
+    profile_img: "",
+  });
+
+  /* REDUX */
+  const spotify = useSelector((state) => state.spotify);
+  const dispatch = useDispatch();
+  const access_token = spotify?.access_token;
 
   /* METHODS */
   const handleSearch = (e) => {
     e.preventDefault();
+    console.log(spotify);
     axios
       .get(`https://api.spotify.com/v1/search?type=track&q=${query}`, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${access_token}`,
         },
       })
       .then((res) => {
@@ -39,6 +63,31 @@ export default function Home() {
       .catch((err) => {
         setIsError(true);
       });
+  };
+
+  const handleSubmitPlaylist = async (e) => {
+    e.preventDefault();
+    if (!playlistData.name || !playlistData.name.length < 10) {
+      alert("Playlist name must be at least 10 characters");
+      return;
+    } else {
+      await createPlaylist(access_token, userProfile.user_id, playlistData)
+        .then(async (res) => {
+          const playlistId = res.data.id;
+          const tracks = selectedData.map((data) => data.uri);
+          await addTracksToPlaylist(access_token, playlistId, tracks);
+          alert("Playlist Created, check your spotify account");
+        })
+        .catch((err) => {
+          console.log(err);
+          setIsError(true);
+        });
+    }
+  };
+
+  const handleFormChange = (e) => {
+    const { name, value } = e.target;
+    setPlaylistData({ ...playlistData, [name]: value });
   };
 
   const handleQuery = (e) => {
@@ -61,20 +110,38 @@ export default function Home() {
       }
       return data;
     });
+    const selectedSong = newData.filter(
+      (data) => data.isSelected && data.uri === data_id
+    );
     setSongData(newData);
-    setSelected(newData);
+    // remove deselected song from selectedData
+    if (selectedSong.length === 0) {
+      setSelected(selectedData.filter((data) => data.uri !== data_id));
+    } else {
+      setSelected([...selectedData, selectedSong[0]]);
+    }
+    console.log(selectedData);
   };
 
   /* EFFECTS */
   useEffect(() => {
     /* This is getting the token from the url. */
-    const token_param = window.location.hash
+    const access_token = window.location.hash
       .substr(1)
       .split("&")[0]
       .split("=")[1];
 
-    if (token_param) {
-      setToken(token_param);
+    if (access_token) {
+      fetchUserProfile(access_token).then((res) => {
+        const user = {
+          name: res.data.display_name,
+          profile_img: res.data.images[0].url,
+          user_id: res.data.id,
+        };
+        console.log(res.data.id);
+        setUserProfile(user);
+      });
+      dispatch(setAccessToken({ access_token }));
       setIsLogin(true);
     }
   }, []);
@@ -82,7 +149,11 @@ export default function Home() {
   /* It's merging the selectedData to songData when user request new search. */
   useEffect(() => {
     if (requestCount > 1) {
-      let newData = [...songData, ...selectedData];
+      // remove song data that is has same uri with selectedData
+      const newSongData = songData.filter((data) => {
+        return !selectedData.some((selected) => selected.uri === data.uri);
+      });
+      let newData = [...newSongData, ...selectedData];
       newData = newData.sort((a, b) => {
         if (a.isSelected && !b.isSelected) {
           return -1;
@@ -98,37 +169,50 @@ export default function Home() {
 
   return (
     <Fragment>
+      <Header {...userProfile} />
+
       {isLogin ? (
-        <div className={styles.container}>
-          <form>
-            <input type="text" placeholder="Search" onChange={handleQuery} />
-            <button type="submit" onClick={handleSearch}>
-              Search
-            </button>
-          </form>
-          <section className="selected_songs"></section>
-          <section className={styles.song_list}>
-            {songData?.map((data) => (
-              <SongDetails
-                data={data}
-                key={data.id}
-                data_id={data.uri}
-                handleSelected={handleSelected}
-              />
-            ))}
-            {isError && <p>Something went wrong</p>}
-          </section>
-        </div>
+        <>
+          <div className={styles.container}>
+            <div className={styles.form_container}>
+              {selectedData.length > 0 && (
+                <div>
+                  <PlaylistForm
+                    data={playlistData}
+                    handleChange={handleFormChange}
+                    handleSubmit={handleSubmitPlaylist}
+                  />
+                </div>
+              )}
+              <form>
+                <input
+                  type="text"
+                  placeholder="Search"
+                  onChange={handleQuery}
+                />
+                <Button type="submit" onClick={handleSearch}>
+                  Search
+                </Button>
+              </form>
+            </div>
+            {selectedData.length > 0 && (
+              <p className={styles.selected_info}>
+                {selectedData.length} songs selected
+              </p>
+            )}
+            {songData.length > 0 && (
+              <SongList data={songData} handleSelected={handleSelected} />
+            )}
+          </div>
+        </>
       ) : (
         <form>
-          <button>
-            <a
-              className="btn_href"
-              href={`https://accounts.spotify.com/authorize?client_id=${SPOTIFY_API_KEY}&response_type=token&redirect_uri=${redirect_uri}&scope=${scopes}`}
-            >
-              Login With Spotify
-            </a>
-          </button>
+          <a
+            className={styles.btn_href}
+            href={`https://accounts.spotify.com/authorize?client_id=${SPOTIFY_API_KEY}&response_type=token&redirect_uri=${redirect_uri}&scope=${scopes}`}
+          >
+            Login With Spotify
+          </a>
         </form>
       )}
     </Fragment>
