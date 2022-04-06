@@ -12,7 +12,7 @@ import { Button } from "../../components/ui";
 import { useSelector, useDispatch } from "react-redux";
 import { setAccessToken } from "../../redux/spotifySlice";
 
-export default function Home() {
+export function HomePage() {
   /* ENV and API */
   const SPOTIFY_API_KEY = process.env.REACT_APP_SPOTIFY_KEY;
   const redirect_uri = "http://localhost:3000/";

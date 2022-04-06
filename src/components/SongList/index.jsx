@@ -10,7 +10,7 @@ export function SongList({ data, handleSelected }) {
   const count = Math.ceil(data.length / PER_PAGE);
   const songData = usePagination(data, PER_PAGE);
 
-  const handleChange = (e, p) => {
+  const handleChange = (_, p) => {
     setPage(p);
     songData.jump(p);
   };
