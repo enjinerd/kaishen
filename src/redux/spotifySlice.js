@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const spotifySlcice = createSlice({
+const spotifySlice = createSlice({
   name: 'spotify',
   initialState: {
     access_token: '',
@@ -8,10 +8,9 @@ const spotifySlcice = createSlice({
   reducers: {
     setAccessToken: (state, action) => {
       state.access_token = action.payload.access_token;
-      console.log('🚀 ~ file: spotifySlice.js ~ line 11 ~ state.access_token', state.access_token);
     },
   },
 });
 
-export const { setAccessToken } = spotifySlcice.actions;
-export default spotifySlcice.reducer;
+export const { setAccessToken } = spotifySlice.actions;
+export default spotifySlice.reducer;

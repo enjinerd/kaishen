@@ -67,9 +67,8 @@ export default function Home() {
 
   const handleSubmitPlaylist = async (e) => {
     e.preventDefault();
-    if (!playlistData.name || !playlistData.name.length < 10) {
-      alert("Playlist name must be at least 10 characters");
-      return;
+    if (!playlistData.name || playlistData.name.length < 10) {
+      alert("Playlist name must be at least 10 characters long");
     } else {
       await createPlaylist(access_token, userProfile.user_id, playlistData)
         .then(async (res) => {
@@ -120,7 +119,6 @@ export default function Home() {
     } else {
       setSelected([...selectedData, selectedSong[0]]);
     }
-    console.log(selectedData);
   };
 
   /* EFFECTS */
