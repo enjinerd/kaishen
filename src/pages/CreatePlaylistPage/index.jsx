@@ -5,7 +5,7 @@ import styles from './CreatePlaylist.module.css';
 import { createPlaylist, addTracksToPlaylist } from '../../utils/spotifyHandler';
 import { Header } from '../../components/ui';
 import { Button } from '../../components/ui';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 export function CreatePlaylistPage() {
   /* STATE */
@@ -27,8 +27,8 @@ export function CreatePlaylistPage() {
 
   /* REDUX */
   const spotify = useSelector((state) => state.spotify);
-  const dispatch = useDispatch();
   const access_token = spotify?.access_token;
+  const user_id = spotify?.user_data.user_id;
 
   /* METHODS */
   const handleSearch = (e) => {
@@ -56,10 +56,12 @@ export function CreatePlaylistPage() {
 
   const handleSubmitPlaylist = async (e) => {
     e.preventDefault();
+    console.log(user_id);
+
     if (!playlistData.name || playlistData.name.length < 10) {
       alert('Playlist name must be at least 10 characters long');
     } else {
-      await createPlaylist(access_token, userProfile.user_id, playlistData)
+      await createPlaylist(access_token, user_id, playlistData)
         .then(async (res) => {
           const playlistId = res.data.id;
           const tracks = selectedData.map((data) => data.uri);
