@@ -1,8 +1,8 @@
 import { Fragment, useState, useEffect } from 'react';
 import styles from './Home.module.css';
-import { fetchUserProfile, createPlaylist, addTracksToPlaylist } from '../../utils/spotifyHandler';
+import { fetchUserProfile } from '../../utils/spotifyHandler';
 import { Header } from '../../components/ui';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { setAccessToken, setUserData } from '../../redux/spotifySlice';
 import { Redirect } from 'react-router-dom';
 

@@ -11,18 +11,12 @@ export function CreatePlaylistPage() {
   /* STATE */
   const [query, setQuery] = useState('');
   const [songData, setSongData] = useState([]);
-  const [isError, setIsError] = useState(false);
   const [selectedData, setSelected] = useState([]);
   const [requestCount, setRequestCount] = useState(0);
   const [playlistData, setPlaylistData] = useState({
     name: '',
     description: '',
     public: false,
-  });
-  const [userProfile, setUserProfile] = useState({
-    display_name: '',
-    user_id: '',
-    profile_img: '',
   });
 
   /* REDUX */
@@ -50,7 +44,7 @@ export function CreatePlaylistPage() {
         setRequestCount(requestCount + 1);
       })
       .catch((err) => {
-        setIsError(true);
+        console.error(err);
       });
   };
 
@@ -70,7 +64,6 @@ export function CreatePlaylistPage() {
         })
         .catch((err) => {
           console.log(err);
-          setIsError(true);
         });
     }
   };
@@ -134,7 +127,7 @@ export function CreatePlaylistPage() {
 
   return (
     <Fragment>
-      <Header {...userProfile} />
+      <Header />
       <div className={styles.container}>
         <div className={styles.form_container}>
           {selectedData.length > 0 && (

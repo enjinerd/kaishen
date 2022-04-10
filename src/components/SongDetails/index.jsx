@@ -11,11 +11,11 @@ export function SongDetails({ data, data_id, handleSelected }) {
     name: albumName,
     external_urls: { spotify: albumUrl },
     images: [{ url: albumImage }],
-  } = data?.album;
+  } = data.album;
   const {
     external_urls: { spotify: artistUrl },
     name: artistName,
-  } = data?.artists[0];
+  } = data.artists[0];
 
   return (
     <div className={`${styles.song_details} ${isSelected && styles.selected_song}`}>
