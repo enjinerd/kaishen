@@ -3,6 +3,7 @@
 */
 
 .song_list {
+  /* Grid song list  with 5 items each row */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.71rem;
