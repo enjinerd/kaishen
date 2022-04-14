@@ -6,6 +6,11 @@ import { createPlaylist, addTracksToPlaylist } from '../../utils/spotifyHandler'
 import { Header } from '../../components/ui';
 import { Button } from '../../components/ui';
 import { useSelector } from 'react-redux';
+import Box from '@mui/material/Box';
+import Alert from '@mui/material/Alert';
+import IconButton from '@mui/material/IconButton';
+import Collapse from '@mui/material/Collapse';
+import CloseIcon from '@mui/icons-material/Close';
 
 export function CreatePlaylistPage() {
   /* STATE */
@@ -18,6 +23,8 @@ export function CreatePlaylistPage() {
     description: '',
     public: false,
   });
+  const [isError, setError] = useState(false);
+  const [isSubmitted, setSubmitted] = useState(false);
 
   /* REDUX */
   const spotify = useSelector((state) => state.spotify);
@@ -53,14 +60,14 @@ export function CreatePlaylistPage() {
     console.log(user_id);
 
     if (!playlistData.name || playlistData.name.length < 10) {
-      alert('Playlist name must be at least 10 characters long');
+      setError(true);
     } else {
       await createPlaylist(access_token, user_id, playlistData)
         .then(async (res) => {
           const playlistId = res.data.id;
           const tracks = selectedData.map((data) => data.uri);
           await addTracksToPlaylist(access_token, playlistId, tracks);
-          alert('Playlist Created, check your spotify account');
+          setSubmitted(true);
         })
         .catch((err) => {
           console.log(err);
@@ -127,6 +134,56 @@ export function CreatePlaylistPage() {
 
   return (
     <Fragment>
+      {isError && (
+        <Box sx={{ width: '100%' }}>
+          <Collapse in={isError}>
+            <Alert
+              action={
+                <IconButton
+                  aria-label="close"
+                  color="inherit"
+                  size="small"
+                  onClick={() => {
+                    setError(false);
+                  }}
+                >
+                  <CloseIcon fontSize="inherit" />
+                </IconButton>
+              }
+              variant="filled"
+              severity="error"
+              sx={{ mb: 2 }}
+            >
+              Playlist title must be 10 words or more.
+            </Alert>
+          </Collapse>
+        </Box>
+      )}
+      {isSubmitted && (
+        <Box sx={{ width: '100%' }}>
+          <Collapse in={isError}>
+            <Alert
+              action={
+                <IconButton
+                  aria-label="close"
+                  color="inherit"
+                  size="small"
+                  onClick={() => {
+                    setError(false);
+                  }}
+                >
+                  <CloseIcon fontSize="inherit" />
+                </IconButton>
+              }
+              variant="filled"
+              severity="success"
+              sx={{ mb: 2 }}
+            >
+              Playlist created, check your spotify account.
+            </Alert>
+          </Collapse>
+        </Box>
+      )}
       <Header />
       <div className={styles.container}>
         <div className={styles.form_container}>
@@ -142,7 +199,7 @@ export function CreatePlaylistPage() {
             </Button>
           </form>
         </div>
-        {selectedData.length > 0 && <p className={styles.selected_info}>{selectedData.length} songs selected</p>}
+        {selectedData.length > 0 && <p className={styles.selected_info}>{selectedData.length} songs Selected.</p>}
         {songData.length > 0 && <SongList data={songData} handleSelected={handleSelected} />}
       </div>
     </Fragment>
