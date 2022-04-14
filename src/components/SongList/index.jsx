@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { SongDetails } from '../';
 import styles from './styles.module.css';
 import { usePagination } from '../../hooks';
+// Material Ui
 import { Pagination } from '@material-ui/lab';
 
 export function SongList({ data, handleSelected }) {
@@ -21,6 +22,7 @@ export function SongList({ data, handleSelected }) {
           return <SongDetails key={song.uri} data={song} data_id={song.uri} handleSelected={handleSelected} />;
         })}
       </div>
+      {/* // Material Ui */}
       <div className={styles.pagination_container}>
         <Pagination count={count} size="large" page={page} variant="text" shape="rounded" onChange={handleChange} />
       </div>
