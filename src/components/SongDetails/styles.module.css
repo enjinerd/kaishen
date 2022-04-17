@@ -4,6 +4,7 @@
 }
 
 .song_details {
+  /* Flex Song details data */
   display: flex;
   flex-direction: column;
   padding: 0.58rem;
@@ -37,6 +38,7 @@
 }
 
 .metadata {
+    /* Flex Song details data */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,6 +46,8 @@
 }
 
 .description {
+    /* Flex Song details data */
+
   display: flex;
   flex-direction: row;
   align-items: center;

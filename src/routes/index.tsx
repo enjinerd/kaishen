@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { CreatePlaylistPage, HomePage, NotFoundPage } from '../pages';
 import PrivateRoute from './PrivateRoute';
 

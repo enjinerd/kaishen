@@ -1,7 +1,21 @@
 import styles from './styles.module.css';
 import { Button } from '../ui';
 
-export function SongDetails({ data, data_id, handleSelected }) {
+interface Spotify {
+  name: Spotify.RootObject['name'];
+  external_urls: Spotify.RootObject['external_urls'];
+  isSelected: boolean;
+  album: Spotify.RootObject['album'];
+  artists: Spotify.RootObject['artists'];
+}
+
+type Props = {
+  data: Spotify;
+  data_id: string;
+  handleSelected: React.MouseEventHandler<HTMLButtonElement>;
+};
+
+const SongDetails = ({ data, data_id, handleSelected }: Props) => {
   const {
     name: songName,
     external_urls: { spotify: songUrl },
@@ -32,10 +46,16 @@ export function SongDetails({ data, data_id, handleSelected }) {
             {albumName}
           </a>
         </div>
-        <Button className={isSelected && styles.btn_selected} onClick={handleSelected} data_id={data_id}>
+        <Button
+          className={isSelected && styles.btn_selected}
+          onClick={handleSelected}
+          type="button"
+          data_id={data_id}>
           {isSelected ? 'Deselect' : 'Select'}
         </Button>
       </div>
     </div>
   );
-}
+};
+
+export default SongDetails;

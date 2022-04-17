@@ -3,6 +3,7 @@
 */
 
 .song_list {
+  /* Grid song list  with 5 items each row */
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.71rem;
@@ -11,6 +12,7 @@
 
 .pagination_container {
   padding: 0.5rem;
+  margin-bottom: 0.7rem;
   background: linear-gradient(0deg, rgb(180, 177, 177) 0%, rgba(217, 213, 221, 0.5) 100%);
   border-radius: 0.5rem;
 }
