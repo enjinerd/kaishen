@@ -49,6 +49,7 @@ const SongDetails = ({ data, data_id, handleSelected }: Props) => {
         <Button
           className={isSelected && styles.btn_selected}
           onClick={handleSelected}
+          type="button"
           data_id={data_id}>
           {isSelected ? 'Deselect' : 'Select'}
         </Button>

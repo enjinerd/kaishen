@@ -2,17 +2,18 @@ import styles from './Button.module.css';
 
 type Props = {
   children: React.ReactNode;
-  onClick: () => void;
+  onClick?: () => void;
   className?: string;
+  type: 'button' | 'submit' | 'reset';
   data_id?: string;
 };
 
-const Button = ({ children, onClick, className, data_id }: Props) => (
+const Button = ({ children, onClick, className, data_id, type }: Props) => (
   <button
-    className={`${styles.button} ${className}`}
+    className={`${styles.btn} ${className}`}
     onClick={onClick}
     data-id={data_id}
-  >
+    type={type}>
     {children}
   </button>
 );

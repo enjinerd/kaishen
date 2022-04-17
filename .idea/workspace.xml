@@ -3,11 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="ec93f490-6a87-4721-8bc9-1e2a2ac316f5" name="Changes" comment="refactor(ui): change to ts">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/Header.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/Modal.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/Modal.module.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/PaginationButton.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PlaylistForm/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PlaylistForm/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SongDetails/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SongDetails/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SongList/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SongList/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/Button.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +22,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="27vXgqogD1sLenQzYctVJ7GG6Ap" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -56,7 +57,7 @@
       <workItem from="1650201655969" duration="2950000" />
       <workItem from="1650207292677" duration="161000" />
       <workItem from="1650207458168" duration="1349000" />
-      <workItem from="1650208844162" duration="99000" />
+      <workItem from="1650208844162" duration="1211000" />
     </task>
     <task id="LOCAL-00001" summary="feat: configuring ts to this project">
       <created>1650208495227</created>
@@ -65,7 +66,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650208495227</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="refactor(ui): change to ts">
+      <created>1650208954142</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1650208954143</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
