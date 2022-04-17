@@ -11,12 +11,23 @@ import Alert from '@mui/material/Alert';
 import IconButton from '@mui/material/IconButton';
 import Collapse from '@mui/material/Collapse';
 import CloseIcon from '@mui/icons-material/Close';
+import { RootState } from '../../redux/store';
+import { Redirect } from 'react-router-dom';
+
+interface Spotify {
+  name: string;
+  external_urls: Spotify.RootObject['external_urls'];
+  isSelected: boolean;
+  album: Spotify.RootObject['album'];
+  artists: Spotify.RootObject['artists'];
+  uri: string;
+}
 
 export function CreatePlaylistPage() {
   /* STATE */
   const [query, setQuery] = useState('');
-  const [songData, setSongData] = useState([]);
-  const [selectedData, setSelected] = useState([]);
+  const [songData, setSongData] = useState([] as Spotify[]);
+  const [selectedData, setSelected] = useState([] as Spotify[]);
   const [requestCount, setRequestCount] = useState(0);
   const [playlistData, setPlaylistData] = useState({
     name: '',
@@ -27,12 +38,12 @@ export function CreatePlaylistPage() {
   const [isSubmitted, setSubmitted] = useState(false);
 
   /* REDUX */
-  const spotify = useSelector((state) => state.spotify);
+  const spotify = useSelector((state: RootState) => state.spotify);
   const access_token = spotify?.access_token;
-  const user_id = spotify?.user_data.user_id;
+  const user_id: string = spotify?.user_data.user_id;
 
   /* METHODS */
-  const handleSearch = (e) => {
+  const handleSearch = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     console.log(spotify);
     axios
@@ -42,7 +53,7 @@ export function CreatePlaylistPage() {
         },
       })
       .then((res) => {
-        const songList = res.data.tracks.items.map((data) => ({
+        const songList = res.data.tracks.items.map((data: Spotify) => ({
           ...data,
           isSelected: false,
         }));
@@ -55,7 +66,7 @@ export function CreatePlaylistPage() {
       });
   };
 
-  const handleSubmitPlaylist = async (e) => {
+  const handleSubmitPlaylist = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(user_id);
 
@@ -65,7 +76,7 @@ export function CreatePlaylistPage() {
       await createPlaylist(access_token, user_id, playlistData)
         .then(async (res) => {
           const playlistId = res.data.id;
-          const tracks = selectedData.map((data) => data.uri);
+          const tracks = selectedData.map((data: Spotify) => data.uri);
           await addTracksToPlaylist(access_token, playlistId, tracks);
           setSubmitted(true);
         })
@@ -75,12 +86,12 @@ export function CreatePlaylistPage() {
     }
   };
 
-  const handleFormChange = (e) => {
+  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setPlaylistData({ ...playlistData, [name]: value });
   };
 
-  const handleQuery = (e) => {
+  const handleQuery = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuery(e.target.value);
   };
 
@@ -89,9 +100,10 @@ export function CreatePlaylistPage() {
    * the song data's uri matches the uri of the song data that was clicked. If it does, it sets the song
    * data's isSelected property to the opposite of what it currently is
    */
-  const handleSelected = (e) => {
-    const data_id = e.target.getAttribute('data_id');
-    const newData = songData.map((data) => {
+  const handleSelected = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const btn = e.target as HTMLButtonElement;
+    const data_id = btn.getAttribute('data-id');
+    const newData: Spotify[] = songData.map((data: Spotify) => {
       if (data.uri === data_id) {
         return {
           ...data,
@@ -100,7 +112,9 @@ export function CreatePlaylistPage() {
       }
       return data;
     });
-    const selectedSong = newData.filter((data) => data.isSelected && data.uri === data_id);
+    const selectedSong: Spotify[] = newData.filter(
+      (data: Spotify) => data.isSelected && data.uri === data_id,
+    );
     setSongData(newData);
     // remove deselected song from selectedData
     if (selectedSong.length === 0) {
@@ -110,6 +124,10 @@ export function CreatePlaylistPage() {
     }
   };
 
+  if (access_token.length === 0) {
+    return <Redirect to="/" />;
+  }
+
   /* EFFECTS */
   /* It's merging the selectedData to songData when user request new search. */
   useEffect(() => {
@@ -118,7 +136,7 @@ export function CreatePlaylistPage() {
       const newSongData = songData.filter((data) => {
         return !selectedData.some((selected) => selected.uri === data.uri);
       });
-      let newData = [...newSongData, ...selectedData];
+      let newData: Spotify[] = [...newSongData, ...selectedData];
       newData = newData.sort((a, b) => {
         if (a.isSelected && !b.isSelected) {
           return -1;
@@ -145,15 +163,13 @@ export function CreatePlaylistPage() {
                   size="small"
                   onClick={() => {
                     setError(false);
-                  }}
-                >
+                  }}>
                   <CloseIcon fontSize="inherit" />
                 </IconButton>
               }
               variant="filled"
               severity="error"
-              sx={{ mb: 2 }}
-            >
+              sx={{ mb: 2 }}>
               Playlist title must be 10 words or more.
             </Alert>
           </Collapse>
@@ -170,26 +186,30 @@ export function CreatePlaylistPage() {
                   size="small"
                   onClick={() => {
                     setError(false);
-                  }}
-                >
+                  }}>
                   <CloseIcon fontSize="inherit" />
                 </IconButton>
               }
               variant="filled"
               severity="success"
-              sx={{ mb: 2 }}
-            >
+              sx={{ mb: 2 }}>
               Playlist created, check your spotify account.
             </Alert>
           </Collapse>
         </Box>
       )}
-      <Header />
+      <Header
+        name={spotify?.user_data.name}
+        profile_img={spotify?.user_data.profile_img}
+      />
       <div className={styles.container}>
         <div className={styles.form_container}>
           {selectedData.length > 0 && (
             <div>
-              <PlaylistForm data={playlistData} handleChange={handleFormChange} handleSubmit={handleSubmitPlaylist} />
+              <PlaylistForm
+                handleChange={handleFormChange}
+                handleSubmit={handleSubmitPlaylist}
+              />
             </div>
           )}
           <form>
@@ -199,8 +219,12 @@ export function CreatePlaylistPage() {
             </Button>
           </form>
         </div>
-        {selectedData.length > 0 && <p className={styles.selected_info}>{selectedData.length} songs Selected.</p>}
-        {songData.length > 0 && <SongList data={songData} handleSelected={handleSelected} />}
+        {selectedData.length > 0 && (
+          <p className={styles.selected_info}>{selectedData.length} songs Selected.</p>
+        )}
+        {songData.length > 0 && (
+          <SongList data={songData} handleSelected={handleSelected} />
+        )}
       </div>
     </Fragment>
   );

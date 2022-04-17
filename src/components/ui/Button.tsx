@@ -2,7 +2,7 @@ import styles from './Button.module.css';
 
 type Props = {
   children: React.ReactNode;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
   className?: string;
   type: 'button' | 'submit' | 'reset';
   data_id?: string;

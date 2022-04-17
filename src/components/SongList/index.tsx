@@ -11,11 +11,12 @@ interface Spotify {
   isSelected: boolean;
   album: Spotify.RootObject['album'];
   artists: Spotify.RootObject['artists'];
+  uri: string;
 }
 
 type Props = {
   data: Spotify[];
-  handleSelected: () => void;
+  handleSelected: React.MouseEventHandler<HTMLButtonElement>;
 };
 
 const SongList: React.FC<Props> = ({ data, handleSelected }: Props) => {
@@ -34,9 +35,9 @@ const SongList: React.FC<Props> = ({ data, handleSelected }: Props) => {
         {songData.currentData()?.map((song) => {
           return (
             <SongDetails
-              key={song.uri}
+              key={song?.uri}
               data={song}
-              data_id={song.uri}
+              data_id={song?.uri}
               handleSelected={handleSelected}
             />
           );

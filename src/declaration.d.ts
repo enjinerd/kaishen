@@ -81,4 +81,9 @@ declare namespace Spotify {
     uri: string;
     isSelected: boolean;
   }
+  export interface UserProfile {
+    name: string;
+    profile_img: string;
+    user_id: string;
+  }
 }

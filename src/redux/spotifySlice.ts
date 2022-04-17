@@ -1,11 +1,22 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+type SpotifyState = {
+  access_token: string;
+  user_data: Spotify.UserProfile;
+};
+
+const initialState: SpotifyState = {
+  access_token: '',
+  user_data: {
+    name: '',
+    profile_img: '',
+    user_id: '',
+  },
+};
+
 const spotifySlice = createSlice({
   name: 'spotify',
-  initialState: {
-    access_token: '',
-    user_data: {},
-  },
+  initialState,
   reducers: {
     setAccessToken: (state, action) => {
       state.access_token = action.payload.access_token;
@@ -18,3 +29,4 @@ const spotifySlice = createSlice({
 
 export const { setAccessToken, setUserData } = spotifySlice.actions;
 export default spotifySlice.reducer;
+export type SpotifyRootState = ReturnType<typeof spotifySlice.reducer>;

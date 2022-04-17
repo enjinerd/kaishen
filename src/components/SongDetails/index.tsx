@@ -12,7 +12,7 @@ interface Spotify {
 type Props = {
   data: Spotify;
   data_id: string;
-  handleSelected: () => void;
+  handleSelected: React.MouseEventHandler<HTMLButtonElement>;
 };
 
 const SongDetails = ({ data, data_id, handleSelected }: Props) => {
