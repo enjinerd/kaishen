@@ -1,16 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ec93f490-6a87-4721-8bc9-1e2a2ac316f5" name="Changes" comment="refactor(hooks, pages, redux): change to ts">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/usePagination.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/usePagination.ts" afterDir="false" />
+    <list default="true" id="ec93f490-6a87-4721-8bc9-1e2a2ac316f5" name="Changes" comment="refactor(app, routes, hooks): change to ts">
       <change beforePath="$PROJECT_DIR$/src/pages/CreatePlaylistPage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/CreatePlaylistPage/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/HomePage/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/HomePage/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/NotFoundPage/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/NotFoundPage/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/PrivateRoute.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/PrivateRoute.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +81,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650218052920</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="refactor(app, routes, hooks): change to ts">
+      <created>1650218540126</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1650218540126</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -111,7 +110,8 @@
     <MESSAGE value="refactor(ui): change to ts" />
     <MESSAGE value="refactor(app) : adjust ts config export and change SongList to ts" />
     <MESSAGE value="refactor(hooks, pages, redux): change to ts" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor(hooks, pages, redux): change to ts" />
+    <MESSAGE value="refactor(app, routes, hooks): change to ts" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor(app, routes, hooks): change to ts" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
