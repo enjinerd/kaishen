@@ -5,7 +5,7 @@ import { RootState } from '../redux/store';
 
 ``;
 
-export default function PrivateRoute({ ...rest }) {
+const PrivateRoute = ({ ...rest }) => {
   const access_token = useSelector((state: RootState) => state.spotify.access_token);
   return (
     <Route
@@ -15,4 +15,6 @@ export default function PrivateRoute({ ...rest }) {
       }
     />
   );
-}
+};
+
+export default PrivateRoute;

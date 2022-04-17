@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { setAccessToken, setUserData } from '../../redux/spotifySlice';
 import { Redirect } from 'react-router-dom';
 
-export function HomePage() {
+const HomePage = () => {
   /* ENV and API */
   const SPOTIFY_API_KEY = process.env.REACT_APP_SPOTIFY_KEY;
   const redirect_uri = 'http://localhost:3000/';
@@ -43,10 +43,14 @@ export function HomePage() {
     <Fragment>
       <Header />
       <form>
-        <a className={styles.btn_href} href={`https://accounts.spotify.com/authorize?client_id=${SPOTIFY_API_KEY}&response_type=token&redirect_uri=${redirect_uri}&scope=${scopes}`}>
+        <a
+          className={styles.btn_href}
+          href={`https://accounts.spotify.com/authorize?client_id=${SPOTIFY_API_KEY}&response_type=token&redirect_uri=${redirect_uri}&scope=${scopes}`}>
           Login With Spotify
         </a>
       </form>
     </Fragment>
   );
-}
+};
+
+export default HomePage;

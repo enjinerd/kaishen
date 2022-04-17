@@ -9,7 +9,7 @@ interface Spotify {
   uri: string;
 }
 
-function usePagination(
+const usePagination = (
   data: Spotify[] = [],
   itemsPerPage: number,
 ): {
@@ -19,7 +19,7 @@ function usePagination(
   currentData: () => Spotify[];
   maxPage: number;
   jump: (page: number) => void;
-} {
+} => {
   const [currentPage, setCurrentPage] = useState(1);
   const maxPage = Math.ceil(data.length / itemsPerPage);
   function currentData(): Spotify[] {
@@ -28,20 +28,20 @@ function usePagination(
     return data.slice(begin, end);
   }
 
-  function next() {
+  const next = () => {
     setCurrentPage((currentPage) => Math.min(currentPage + 1, maxPage));
-  }
+  };
 
-  function prev() {
+  const prev = () => {
     setCurrentPage((currentPage) => Math.max(currentPage - 1, 1));
-  }
+  };
 
-  function jump(page: number) {
+  const jump = (page: number) => {
     const pageNumber = Math.max(1, page);
     setCurrentPage(() => Math.min(pageNumber, maxPage));
-  }
+  };
 
   return { next, prev, jump, currentData, currentPage, maxPage };
-}
+};
 
 export default usePagination;

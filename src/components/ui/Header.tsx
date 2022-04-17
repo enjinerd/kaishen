@@ -1,8 +1,8 @@
 import styles from './Header.module.css';
 
 type Props = {
-  name: string;
-  profile_img: string;
+  name?: string;
+  profile_img?: string;
 };
 
 const Header: React.FC<Props> = ({ name, profile_img }: Props) => {

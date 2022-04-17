@@ -23,7 +23,7 @@ interface Spotify {
   uri: string;
 }
 
-export function CreatePlaylistPage() {
+const CreatePlaylistPage = () => {
   /* STATE */
   const [query, setQuery] = useState('');
   const [songData, setSongData] = useState([] as Spotify[]);
@@ -228,4 +228,6 @@ export function CreatePlaylistPage() {
       </div>
     </Fragment>
   );
-}
+};
+
+export default CreatePlaylistPage;

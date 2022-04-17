@@ -2,25 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec93f490-6a87-4721-8bc9-1e2a2ac316f5" name="Changes" comment="refactor(hooks, pages, redux): change to ts">
-      <change afterPath="$PROJECT_DIR$/src/hooks/usePagination.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/CreatePlaylistPage/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/spotifySlice.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/redux/store.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SongDetails/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SongDetails/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SongList/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SongList/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/Button.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/Button.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/declaration.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/declaration.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/usePagination.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/CreatePlaylistPage/index.jsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/spotifySlice.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/redux/store.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/PrivateRoute.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/PrivateRoute.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/spotifyHandler.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/spotifyHandler.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/usePagination.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/hooks/usePagination.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/CreatePlaylistPage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/CreatePlaylistPage/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/HomePage/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/HomePage/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/NotFoundPage/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/NotFoundPage/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/routes/PrivateRoute.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/routes/PrivateRoute.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +82,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650210188190</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="refactor(hooks, pages, redux): change to ts">
+      <created>1650218052920</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1650218052920</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
