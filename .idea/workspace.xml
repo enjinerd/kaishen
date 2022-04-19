@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ec93f490-6a87-4721-8bc9-1e2a2ac316f5" name="Changes" comment="fix(create-playlist) : temp add alert to point bug ui alert">
-      <change afterPath="$PROJECT_DIR$/src/components/ui/__tests__/Footer.test.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/__tests__/Header.test.tsx" afterDir="false" />
+    <list default="true" id="ec93f490-6a87-4721-8bc9-1e2a2ac316f5" name="Changes" comment="test(components): testing render correctly">
+      <change afterPath="$PROJECT_DIR$/src/components/__test__/PlaylistForm.test.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/__test__/SongDetails.test.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/__test__/SongList.test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/Button.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PlaylistForm/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PlaylistForm/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SongDetails/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SongDetails/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SongList/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SongList/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/CreatePlaylistPage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/CreatePlaylistPage/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,7 +80,11 @@
       <workItem from="1650242901283" duration="1185000" />
       <workItem from="1650250051559" duration="62000" />
       <workItem from="1650268861321" duration="562000" />
-      <workItem from="1650291570990" duration="1166000" />
+      <workItem from="1650291570990" duration="2444000" />
+      <workItem from="1650328839935" duration="15000" />
+      <workItem from="1650329087220" duration="686000" />
+      <workItem from="1650336044382" duration="113000" />
+      <workItem from="1650352839015" duration="2930000" />
     </task>
     <task id="LOCAL-00001" summary="feat: configuring ts to this project">
       <created>1650208495227</created>
@@ -121,7 +128,21 @@
       <option name="project" value="LOCAL" />
       <updated>1650218751065</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="test(ui): add unit test for ui components">
+      <created>1650293221082</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1650293221082</updated>
+    </task>
+    <task id="LOCAL-00008" summary="test(ui): add unit test for button">
+      <created>1650293263624</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1650293263624</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,7 +166,21 @@
     <MESSAGE value="refactor(hooks, pages, redux): change to ts" />
     <MESSAGE value="refactor(app, routes, hooks): change to ts" />
     <MESSAGE value="fix(create-playlist) : temp add alert to point bug ui alert" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix(create-playlist) : temp add alert to point bug ui alert" />
+    <MESSAGE value="test(ui): add unit test for ui components" />
+    <MESSAGE value="test(ui): add unit test for button" />
+    <MESSAGE value="test(components): testing render correctly" />
+    <option name="LAST_COMMIT_MESSAGE" value="test(components): testing render correctly" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/__test__/PlaylistForm.test.tsx</url>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

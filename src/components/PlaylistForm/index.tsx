@@ -7,7 +7,7 @@ type Props = {
 
 const PlaylistForm: React.FC<Props> = ({ handleSubmit, handleChange }: Props) => {
   return (
-    <form onSubmit={handleSubmit}>
+    <form data-testid="playlist-form" onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Playlist Name"

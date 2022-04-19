@@ -32,7 +32,9 @@ const SongDetails = ({ data, data_id, handleSelected }: Props) => {
   } = data.artists[0];
 
   return (
-    <div className={`${styles.song_details} ${isSelected && styles.selected_song}`}>
+    <div
+      className={`${styles.song_details} ${isSelected && styles.selected_song}`}
+      data-testid="song-details">
       <div className={styles.description}>
         <img className={styles.song_image} src={albumImage} alt="song_details" />
         <div className={styles.metadata}>

@@ -31,7 +31,7 @@ const SongList: React.FC<Props> = ({ data, handleSelected }: Props) => {
   };
   return (
     <>
-      <div className={styles.song_list}>
+      <div className={styles.song_list} data-testid="song-list">
         {songData.currentData()?.map((song) => {
           return (
             <SongDetails
