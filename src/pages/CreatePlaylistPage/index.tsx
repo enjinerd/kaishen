@@ -57,7 +57,7 @@ const CreatePlaylistPage = () => {
           ...data,
           isSelected: false,
         }));
-
+        console.log(songList);
         setSongData(songList);
         setRequestCount(requestCount + 1);
       })
@@ -70,7 +70,7 @@ const CreatePlaylistPage = () => {
     e.preventDefault();
     console.log(user_id);
 
-    if (!playlistData.name || playlistData.name.length < 10) {
+    if (playlistData.name.length < 10) {
       setError(true);
     } else {
       await createPlaylist(access_token, user_id, playlistData)
@@ -79,7 +79,6 @@ const CreatePlaylistPage = () => {
           const tracks = selectedData.map((data: Spotify) => data.uri);
           await addTracksToPlaylist(access_token, playlistId, tracks);
           setSubmitted(true);
-          alert('Playlist created successfully');
         })
         .catch((err) => {
           console.log(err);
