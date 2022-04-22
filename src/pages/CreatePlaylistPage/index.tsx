@@ -52,8 +52,6 @@ const CreatePlaylistPage = () => {
           ...data,
           isSelected: false,
         }));
-        console.log(songList);
-
         setSongData(songList);
         setRequestCount(requestCount + 1);
       })

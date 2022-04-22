@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { CreatePlaylistPage, HomePage, NotFoundPage, LoginPage } from '../pages';
+import { CreatePlaylistPage, HomePage, NotFoundPage } from '../pages';
 import PrivateRoute from './PrivateRoute';
 
 const AppRouter = () => (
@@ -7,7 +7,6 @@ const AppRouter = () => (
     <div>
       <Switch>
         <Route path="/" component={HomePage} exact={true} />
-        <Route path="/login" component={LoginPage} />
         <PrivateRoute path="/create-playlist" component={CreatePlaylistPage} />
         <Route component={NotFoundPage} />
       </Switch>
