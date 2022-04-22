@@ -19,6 +19,13 @@
 
 - [@enjinerd](https://www.github.com/enjinerd) - Roni Ardiyanto
 
+## Features
+
+- Landing Page
+- Search Song / Artist / Album
+- Select Multiple Songs
+- Create Playlist from Selected Songs
+
 
 ## Environment Variables
 

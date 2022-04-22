@@ -36,7 +36,12 @@ const SongDetails = ({ data, data_id, handleSelected }: Props) => {
       className={`${styles.song_details} ${isSelected && styles.selected_song}`}
       data-testid="song-details">
       <div className={styles.description}>
-        <img className={styles.song_image} src={albumImage} alt="song_details" />
+        <img
+          className={styles.song_image}
+          src={albumImage}
+          alt="song_details"
+          loading="lazy"
+        />
         <div className={styles.metadata}>
           <a href={songUrl}>
             <span className={styles.title}>{songName}</span>

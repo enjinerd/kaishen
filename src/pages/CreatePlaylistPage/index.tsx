@@ -16,6 +16,7 @@ interface Spotify {
   album: Spotify.RootObject['album'];
   artists: Spotify.RootObject['artists'];
   uri: string;
+  duration_ms: Spotify.RootObject['duration_ms'];
 }
 
 const CreatePlaylistPage = () => {
@@ -41,7 +42,7 @@ const CreatePlaylistPage = () => {
     e.preventDefault();
 
     axios
-      .get(`https://api.spotify.com/v1/search?type=track&q=${query}`, {
+      .get(`https://api.spotify.com/v1/search?type=track,artist,album&q=${query}`, {
         headers: {
           Authorization: `Bearer ${access_token}`,
         },
@@ -51,6 +52,7 @@ const CreatePlaylistPage = () => {
           ...data,
           isSelected: false,
         }));
+        console.log(songList);
 
         setSongData(songList);
         setRequestCount(requestCount + 1);

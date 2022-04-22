@@ -27,7 +27,12 @@ const Hero = () => {
                 <SpotifyLogo className="w-auto h-8" /> <p>Login with Spotify</p>
               </a>
             </div>
-            <img src="Playlist.png" alt="Playlist" className="w-2/4 h-auto shadow-2xl" />
+            <img
+              src="Playlist.png"
+              alt="Playlist"
+              className="w-2/4 h-auto shadow-2xl"
+              loading="lazy"
+            />
           </div>
         </div>
       </div>
