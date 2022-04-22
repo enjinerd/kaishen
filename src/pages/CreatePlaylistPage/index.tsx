@@ -1,6 +1,6 @@
 import { Fragment, useState, useEffect } from 'react';
 import axios from 'axios';
-import { SongList, PlaylistForm } from '../../components';
+import { SongList, PlaylistForm } from '../../components/dashboard';
 import styles from './CreatePlaylist.module.css';
 import { createPlaylist, addTracksToPlaylist } from '../../utils/spotifyHandler';
 import { Header } from '../../components/ui';
