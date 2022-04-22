@@ -6,13 +6,9 @@ import { createPlaylist, addTracksToPlaylist } from '../../utils/spotifyHandler'
 import { Header } from '../../components/ui';
 import { Button } from '../../components/ui';
 import { useSelector } from 'react-redux';
-import Box from '@mui/material/Box';
-import Alert from '@mui/material/Alert';
-import IconButton from '@mui/material/IconButton';
-import Collapse from '@mui/material/Collapse';
-import CloseIcon from '@mui/icons-material/Close';
 import { RootState } from '../../redux/store';
 import { Redirect } from 'react-router-dom';
+import { toast, Toaster } from 'react-hot-toast';
 
 interface Spotify {
   name: string;
@@ -34,8 +30,7 @@ const CreatePlaylistPage = () => {
     description: '',
     public: false,
   });
-  const [isError, setError] = useState(false);
-  const [isSubmitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   /* REDUX */
   const spotify = useSelector((state: RootState) => state.spotify);
@@ -71,17 +66,23 @@ const CreatePlaylistPage = () => {
     console.log(user_id);
 
     if (playlistData.name.length < 10) {
-      setError(true);
+      toast.error('Playlist name must be at least 10 characters long');
     } else {
+      setIsSubmitting(true);
+      if (isSubmitting) {
+        toast.loading('Creating playlist...');
+      }
       await createPlaylist(access_token, user_id, playlistData)
         .then(async (res) => {
           const playlistId = res.data.id;
           const tracks = selectedData.map((data: Spotify) => data.uri);
           await addTracksToPlaylist(access_token, playlistId, tracks);
-          setSubmitted(true);
+          setIsSubmitting(false);
+          toast.success('Playlist created successfully');
         })
         .catch((err) => {
-          console.log(err);
+          setIsSubmitting(false);
+          toast.error(`Error creating playlist, msg : ${err}`);
         });
     }
   };
@@ -151,67 +152,14 @@ const CreatePlaylistPage = () => {
   }, [requestCount]);
 
   return (
-    <div className="min-h-screen flex flex-col justify-start gap-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600">
-      {isError && (
-        <Box sx={{ width: '100%' }}>
-          <Collapse in={isError}>
-            <Alert
-              action={
-                <IconButton
-                  aria-label="close"
-                  color="inherit"
-                  size="small"
-                  onClick={() => {
-                    setError(false);
-                  }}>
-                  <CloseIcon fontSize="inherit" />
-                </IconButton>
-              }
-              variant="filled"
-              severity="error"
-              sx={{ mb: 2 }}>
-              Playlist title must be 10 words or more.
-            </Alert>
-          </Collapse>
-        </Box>
-      )}
-      {isSubmitted && (
-        <Box sx={{ width: '100%' }}>
-          <Collapse in={isError}>
-            <Alert
-              action={
-                <IconButton
-                  aria-label="close"
-                  color="inherit"
-                  size="small"
-                  onClick={() => {
-                    setError(false);
-                  }}>
-                  <CloseIcon fontSize="inherit" />
-                </IconButton>
-              }
-              variant="filled"
-              severity="success"
-              sx={{ mb: 2 }}>
-              Playlist created, check your spotify account.
-            </Alert>
-          </Collapse>
-        </Box>
-      )}
+    <div className="min-h-screen flex flex-col justify-start gap-2 bg-gradient-to-tl from-slate-700 via-rose-600 to-indigo-500">
+      <Toaster />
       <Header
         name={spotify?.user_data.name}
         profile_img={spotify?.user_data.profile_img}
       />
-      <div className="flex flex-col items-center justify-center font-primary gap-8">
+      <div className="flex flex-col items-center justify-center font-primary gap-3">
         <div className={styles.form_container}>
-          {selectedData.length > 0 && (
-            <div>
-              <PlaylistForm
-                handleChange={handleFormChange}
-                handleSubmit={handleSubmitPlaylist}
-              />
-            </div>
-          )}
           <form className="flex flex-row gap-3 items-center justify-center">
             <input type="text" placeholder="Search" onChange={handleQuery} />
             <Button type="submit" onClick={handleSearch}>
@@ -220,7 +168,13 @@ const CreatePlaylistPage = () => {
           </form>
         </div>
         {selectedData.length > 0 && (
-          <p className={styles.selected_info}>{selectedData.length} songs Selected.</p>
+          <div className="flex flex-row gap-5 justify-center items-center">
+            <p className={styles.selected_info}>{selectedData.length} songs Selected.</p>
+            <PlaylistForm
+              handleChange={handleFormChange}
+              handleSubmit={handleSubmitPlaylist}
+            />
+          </div>
         )}
         {songData.length > 0 && (
           <SongList data={songData} handleSelected={handleSelected} />

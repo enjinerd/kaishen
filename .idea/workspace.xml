@@ -2,21 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ec93f490-6a87-4721-8bc9-1e2a2ac316f5" name="Changes" comment="feat (dashboard) : major changes dashboard and migrate to tailwind">
-      <change afterPath="$PROJECT_DIR$/src/components/landing/Features.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/landing/Footer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/dashboard/PlaylistForm/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard/PlaylistForm/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard/SongDetails/styles.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard/SongDetails/styles.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard/SongList/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard/SongList/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/landing/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/landing/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/landing/Hero.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/landing/Hero.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/landing/LandingLayout.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/landing/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/landing/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/Header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/CreatePlaylistPage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/CreatePlaylistPage/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/HomePage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/HomePage/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/LoginPage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPage/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,7 +106,7 @@
       <workItem from="1650545396284" duration="7188000" />
       <workItem from="1650614323319" duration="5710000" />
       <workItem from="1650622025095" duration="167000" />
-      <workItem from="1650623792990" duration="3260000" />
+      <workItem from="1650623792990" duration="7214000" />
     </task>
     <task id="LOCAL-00001" summary="feat: configuring ts to this project">
       <created>1650208495227</created>
@@ -188,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650622031677</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="feat (dashboard) : major changes dashboard and migrate to tailwind">
+      <created>1650630084581</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1650630084581</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
