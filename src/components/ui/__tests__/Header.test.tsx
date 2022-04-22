@@ -4,5 +4,5 @@ import { Header } from '../';
 
 test('renders the header', () => {
   render(<Header />);
-  expect(screen.getByText('🎶 PlayliStation')).toBeInTheDocument();
+  expect(screen.getByTestId('dashboard-header')).toBeInTheDocument();
 });
