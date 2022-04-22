@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ec93f490-6a87-4721-8bc9-1e2a2ac316f5" name="Changes" comment="feat(pages/create-playlist) : add info when search result is not found">
+    <list default="true" id="ec93f490-6a87-4721-8bc9-1e2a2ac316f5" name="Changes" comment="test(dashboard/SearchSong) : add test and fireEvent test">
+      <change afterPath="$PROJECT_DIR$/src/components/dashboard/SongSearch/SongSearch.module.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/dashboard/SongSearch/index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/dashboard/__test__/SongSearch.test.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard/PlaylistForm/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard/PlaylistForm/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dashboard/__test__/PlaylistForm.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard/__test__/PlaylistForm.test.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/__tests__/Header.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/__tests__/Header.test.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/dashboard/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/CreatePlaylistPage/CreatePlaylist.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/CreatePlaylistPage/CreatePlaylist.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/CreatePlaylistPage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/CreatePlaylistPage/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,7 +22,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="27vXgqogD1sLenQzYctVJ7GG6Ap" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -53,6 +55,26 @@
     </key>
   </component>
   <component name="RunManager" selected="npm.test">
+    <configuration name="lint" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="lint" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="lint:fix" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="lint:fix" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="run" />
@@ -75,6 +97,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.lint:fix" />
+        <item itemvalue="npm.lint" />
         <item itemvalue="npm.start" />
       </list>
     </recent_temporary>
@@ -106,7 +130,7 @@
       <workItem from="1650545396284" duration="7188000" />
       <workItem from="1650614323319" duration="5710000" />
       <workItem from="1650622025095" duration="167000" />
-      <workItem from="1650623792990" duration="9246000" />
+      <workItem from="1650623792990" duration="10874000" />
     </task>
     <task id="LOCAL-00001" summary="feat: configuring ts to this project">
       <created>1650208495227</created>
@@ -199,7 +223,21 @@
       <option name="project" value="LOCAL" />
       <updated>1650638701692</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="test(component) : fix testing schema">
+      <created>1650639085602</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1650639085602</updated>
+    </task>
+    <task id="LOCAL-00015" summary="chore(eslint): change eslint conf">
+      <created>1650639481119</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1650639481119</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,7 +269,10 @@
     <MESSAGE value="feat (dashboard) : major changes dashboard and migrate to tailwind" />
     <MESSAGE value="refactor(PlaylistForm) : change approach to modal" />
     <MESSAGE value="feat(pages/create-playlist) : add info when search result is not found" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(pages/create-playlist) : add info when search result is not found" />
+    <MESSAGE value="test(component) : fix testing schema" />
+    <MESSAGE value="chore(eslint): change eslint conf" />
+    <MESSAGE value="test(dashboard/SearchSong) : add test and fireEvent test" />
+    <option name="LAST_COMMIT_MESSAGE" value="test(dashboard/SearchSong) : add test and fireEvent test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

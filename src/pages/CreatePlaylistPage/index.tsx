@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { SongList, PlaylistForm } from '../../components/dashboard';
+import { SongList, PlaylistForm, SongSearch } from '../../components/dashboard';
 import styles from './CreatePlaylist.module.css';
 import { createPlaylist, addTracksToPlaylist } from '../../utils/spotifyHandler';
 import { Header } from '../../components/ui';
-import { Button } from '../../components/ui';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../redux/store';
 import { Redirect } from 'react-router-dom';
@@ -159,14 +158,7 @@ const CreatePlaylistPage = () => {
         profile_img={spotify?.user_data.profile_img}
       />
       <div className="flex flex-col items-center justify-center font-primary gap-3">
-        <div className={styles.form_container}>
-          <form className="flex flex-row gap-3 items-center justify-center">
-            <input type="text" placeholder="Search" onChange={handleQuery} />
-            <Button type="submit" onClick={handleSearch}>
-              Search
-            </Button>
-          </form>
-        </div>
+        <SongSearch handleQuery={handleQuery} handleSearch={handleSearch} />
         {selectedData.length > 0 && (
           <div className="flex flex-row gap-5 justify-center items-center">
             <p className={styles.selected_info}>{selectedData.length} songs Selected.</p>
