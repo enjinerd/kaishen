@@ -1,14 +1,16 @@
 import React from 'react';
 import { Logo } from '../ui';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
     <header className="bg-gray-900 bg-opacity-50 font-primary">
       <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
         <div className="container flex flex-wrap items-center justify-between mx-auto">
-          <a href="https://flowbite.com" className="flex items-center">
+          <Link to="/">
             <Logo className="h-20 w-44" />
-          </a>
+          </Link>
+
           <div className="flex md:order-2">
             <button
               type="button"
