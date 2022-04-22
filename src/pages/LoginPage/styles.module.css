@@ -11,7 +11,7 @@
   font-weight: 600;
   font-size: 1.25rem;
   background: linear-gradient(0deg, rgb(253, 253, 253) 0%, rgba(212, 209, 214, 0.5) 100%);
-  background-clip: text;
+  background-clip: initial;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-align: center;
