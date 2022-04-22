@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { SongList, PlaylistForm } from '../../components/dashboard';
 import styles from './CreatePlaylist.module.css';
@@ -151,7 +151,7 @@ const CreatePlaylistPage = () => {
   }, [requestCount]);
 
   return (
-    <Fragment>
+    <div className="min-h-screen flex flex-col justify-start gap-2 bg-gradient-to-r from-green-300 via-blue-500 to-purple-600">
       {isError && (
         <Box sx={{ width: '100%' }}>
           <Collapse in={isError}>
@@ -202,7 +202,7 @@ const CreatePlaylistPage = () => {
         name={spotify?.user_data.name}
         profile_img={spotify?.user_data.profile_img}
       />
-      <div className={styles.container}>
+      <div className="flex flex-col items-center justify-center font-primary gap-8">
         <div className={styles.form_container}>
           {selectedData.length > 0 && (
             <div>
@@ -212,7 +212,7 @@ const CreatePlaylistPage = () => {
               />
             </div>
           )}
-          <form>
+          <form className="flex flex-row gap-3 items-center justify-center">
             <input type="text" placeholder="Search" onChange={handleQuery} />
             <Button type="submit" onClick={handleSearch}>
               Search
@@ -226,7 +226,7 @@ const CreatePlaylistPage = () => {
           <SongList data={songData} handleSelected={handleSelected} />
         )}
       </div>
-    </Fragment>
+    </div>
   );
 };
 

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { SongDetails } from '../index';
-import styles from './styles.module.css';
 import { usePagination } from '../../../hooks';
 // Material Ui
 import { Pagination } from '@material-ui/lab';
@@ -30,8 +29,8 @@ const SongList: React.FC<Props> = ({ data, handleSelected }: Props) => {
     songData.jump(p);
   };
   return (
-    <>
-      <div className={styles.song_list} data-testid="song-list">
+    <section className="flex flex-col items-center justify-between gap-6">
+      <div className="grid grid-cols-3 gap-5 justify-center" data-testid="song-list">
         {songData.currentData()?.map((song) => {
           return (
             <SongDetails
@@ -44,7 +43,7 @@ const SongList: React.FC<Props> = ({ data, handleSelected }: Props) => {
         })}
       </div>
       {/* // Material Ui */}
-      <div className={styles.pagination_container}>
+      <div className="bg-indigo-50 rounded-lg font-primary">
         <Pagination
           count={count}
           size="large"
@@ -54,7 +53,7 @@ const SongList: React.FC<Props> = ({ data, handleSelected }: Props) => {
           onChange={handleChange}
         />
       </div>
-    </>
+    </section>
   );
 };
 

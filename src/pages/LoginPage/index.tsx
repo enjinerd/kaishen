@@ -9,7 +9,7 @@ import { Redirect } from 'react-router-dom';
 const LoginPage = () => {
   /* ENV and API */
   const SPOTIFY_API_KEY = process.env.REACT_APP_SPOTIFY_KEY;
-  const redirect_uri = 'http://localhost:3000/';
+  const redirect_uri = process.env.REACT_APP_SPOTIFY_CALLBACK_URL;
   const scopes = 'playlist-modify-private';
 
   const dispatch = useDispatch();

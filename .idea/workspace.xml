@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ec93f490-6a87-4721-8bc9-1e2a2ac316f5" name="Changes" comment="fix(pages) : fix style LoginPage">
+    <list default="true" id="ec93f490-6a87-4721-8bc9-1e2a2ac316f5" name="Changes" comment="feat (dashboard) : major changes dashboard and migrate to tailwind">
+      <change afterPath="$PROJECT_DIR$/src/components/landing/Features.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/landing/Footer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/.env.example" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SongDetails/index.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/dashboard/PlaylistForm/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard/PlaylistForm/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/dashboard/SongDetails/styles.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard/SongDetails/styles.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/dashboard/SongList/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dashboard/SongList/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/landing/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/landing/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/landing/Hero.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/landing/Hero.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/landing/LandingLayout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/landing/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/landing/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ui/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/CreatePlaylistPage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/CreatePlaylistPage/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/HomePage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/HomePage/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/LoginPage/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/LoginPage/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +57,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/pages/HomePage" />
       <recent name="$PROJECT_DIR$/src/components/dashboard" />
       <recent name="$PROJECT_DIR$/src/components/landing" />
     </key>
@@ -102,6 +116,7 @@
       <workItem from="1650545396284" duration="7188000" />
       <workItem from="1650614323319" duration="5710000" />
       <workItem from="1650622025095" duration="167000" />
+      <workItem from="1650623792990" duration="3260000" />
     </task>
     <task id="LOCAL-00001" summary="feat: configuring ts to this project">
       <created>1650208495227</created>
@@ -201,7 +216,9 @@
     <MESSAGE value="test(ui): add unit test for button" />
     <MESSAGE value="test(components): testing render correctly" />
     <MESSAGE value="feat(app) : add landing page" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat(app) : add landing page" />
+    <MESSAGE value="feat (dashboard) : major changes dashbord and migrate to tailwind" />
+    <MESSAGE value="feat (dashboard) : major changes dashboard and migrate to tailwind" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat (dashboard) : major changes dashboard and migrate to tailwind" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -209,16 +226,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/components/dashboard/__test__/PlaylistForm.test.tsx</url>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/components/landing/LandingLayout.tsx</url>
-          <line>107</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/components/landing/LandingLayout.tsx</url>
-          <line>130</line>
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
