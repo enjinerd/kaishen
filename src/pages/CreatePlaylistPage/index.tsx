@@ -77,6 +77,9 @@ const CreatePlaylistPage = () => {
           const tracks = selectedData.map((data: Spotify) => data.uri);
           await addTracksToPlaylist(access_token, playlistId, tracks);
           setIsSubmitting(false);
+          setSongData([]);
+          setSelected([]);
+          setRequestCount(0);
           toast.success('Playlist created successfully');
         })
         .catch((err) => {
