@@ -2,6 +2,8 @@
 
 ##### PlayliStation - Generasi GIGIH 2.0 Final Project for Frontend Track
 
+Web application for searching songs and create playlist using Spotify API
+
 ![cover](https://i.ibb.co/bvtShWn/cover.png)
 
 # Demo
