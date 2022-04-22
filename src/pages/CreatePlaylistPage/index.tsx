@@ -39,7 +39,7 @@ const CreatePlaylistPage = () => {
   /* METHODS */
   const handleSearch = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
-    console.log(spotify);
+
     axios
       .get(`https://api.spotify.com/v1/search?type=track&q=${query}`, {
         headers: {
@@ -51,7 +51,7 @@ const CreatePlaylistPage = () => {
           ...data,
           isSelected: false,
         }));
-        console.log(songList);
+
         setSongData(songList);
         setRequestCount(requestCount + 1);
       })
@@ -62,7 +62,6 @@ const CreatePlaylistPage = () => {
 
   const handleSubmitPlaylist = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(user_id);
 
     if (playlistData.name.length < 10) {
       toast.error('Playlist name must be at least 10 characters long');

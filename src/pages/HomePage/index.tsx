@@ -26,7 +26,7 @@ const HomePage = () => {
           user_id: res.data.id,
         };
         dispatch(setUserData({ user_data }));
-        console.log(user_data);
+
         dispatch(setAccessToken({ access_token }));
         setLogin(true);
       });
