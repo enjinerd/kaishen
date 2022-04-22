@@ -6,7 +6,13 @@ const handleChange = jest.fn();
 const handleSubmit = jest.fn();
 
 test('renders PlaylistForm', () => {
-  render(<PlaylistForm handleChange={handleChange} handleSubmit={handleSubmit} />);
+  render(
+    <PlaylistForm
+      handleChange={handleChange}
+      handleSubmit={handleSubmit}
+      isOpenState={true}
+    />,
+  );
   // check if the form is rendered
   expect(screen.getByTestId('playlist-form')).toBeInTheDocument();
 });

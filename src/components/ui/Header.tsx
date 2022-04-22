@@ -9,7 +9,9 @@ type Props = {
 
 const Header: React.FC<Props> = ({ name, profile_img }: Props) => {
   return (
-    <header className="flex flex-row justify-between px-16 py-6 items-center justify-center">
+    <header
+      className="flex flex-row justify-between px-16 py-6 items-center justify-center"
+      data-testid="dashboard-header">
       <Logo className="h-20 w-44" />
       {name && (
         <section className="px-4 py-2 rounded-lg flex flex-row justify-center items-center bg-white text-black font-primary gap-6">

@@ -5,10 +5,15 @@ import { Button } from '../../ui';
 type Props = {
   handleSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  isOpenState?: boolean;
 };
 
-const PlaylistForm: React.FC<Props> = ({ handleSubmit, handleChange }: Props) => {
-  const [isOpen, setIsOpen] = useState(false);
+const PlaylistForm: React.FC<Props> = ({
+  handleSubmit,
+  handleChange,
+  isOpenState = false,
+}: Props) => {
+  const [isOpen, setIsOpen] = useState(isOpenState);
 
   return (
     <>
