@@ -176,6 +176,12 @@ const CreatePlaylistPage = () => {
             />
           </div>
         )}
+        {songData.length === 0 && requestCount > 0 && (
+          <div className="flex flex-col items-center justify-center text-lg text-white font-semibold">
+            <p className={styles.no_result}>No result found.</p>
+            <p className={styles.no_result}>Change your search query and try again</p>
+          </div>
+        )}
         {songData.length > 0 && (
           <SongList data={songData} handleSelected={handleSelected} />
         )}
